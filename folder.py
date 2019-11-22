@@ -33,6 +33,9 @@ class Folder:
 
     def goToParDir(self):
         self.setDir(self.prepPathToPar())
+
+    def showMeDir(self):#fix it
+        os.walk(self.dir)
         
 
         
@@ -40,7 +43,9 @@ class Folder:
 
 
 folder = Folder()
+print(folder.getDir())
 folder.goToParDir()
 print(folder.getDir())
+print(folder.showMeDir())
 
 
