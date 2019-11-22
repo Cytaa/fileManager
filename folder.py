@@ -4,39 +4,43 @@ import os
 class Folder:
 
     def __init__(self):
-        self.getDir()
-
-    def getDir(self):
-
         self.dir = os.getcwd()
 
-        return dir
+    def getDir(self):
+        return self.dir
 
-    def findPar(self, path):
+    def findLastBack(self):
 
-        for i in range(len(path) - 1, -1, -1):
-            if path[i] == "\\":
+        for i in range(len(self.dir) - 1, -1, -1):
+            if self.dir[i] == "\\":
                 return i
 
 
-    def getParDir(self, path, lastBack):
+    def prepPathToPar(self):
 
         nDir = []
 
-        for i in range(lastBack):
-            nDir.append(path[i])
+        for i in range(self.findLastBack()):
+            nDir.append(self.dir[i])
 
         nDir = "".join(nDir)
-        
+
         return nDir 
 
     def setDir(self, path):
         os.chdir(path)
+        self.dir = path
 
     def goToParDir(self):
-        pass
+        self.setDir(self.prepPathToPar())
+        
+
+        
         
 
 
 folder = Folder()
-folder.getParDir(folder.dir, folder.findPar(folder.dir))
+folder.goToParDir()
+print(folder.getDir())
+
+
