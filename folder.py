@@ -15,7 +15,6 @@ class Folder:
             if self.dir[i] == "\\":
                 return i
 
-
     def prepPathToPar(self):
 
         nDir = []
@@ -25,7 +24,7 @@ class Folder:
 
         nDir = "".join(nDir)
 
-        return nDir 
+        return nDir
 
     def setDir(self, path):
         os.chdir(path)
@@ -34,18 +33,22 @@ class Folder:
     def goToParDir(self):
         self.setDir(self.prepPathToPar())
 
-    def showMeDir(self):#fix it
-        os.walk(self.dir)
-        
 
-        
-        
+    def showMeDir(self):
+        root = self.dir
+
+        for item in os.listdir(root):
+            if os.path.isfile(os.path.join(root,item)):
+                print(item + "\n")
+            elif os.path.isdir(os.path.join(root,item)):
+                print(item + "\n")
+
+
+
 
 
 folder = Folder()
 print(folder.getDir())
 folder.goToParDir()
 print(folder.getDir())
-print(folder.showMeDir())
-
-
+folder.showMeDir()
