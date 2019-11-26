@@ -26,17 +26,22 @@ class Folder:
 
         return nDir
 
-    def prepPathToChild(self, dirPath):#doesnt work yet need
+    def prepPathToChild(self, path):
 
         nDir = []
+        
+        for i in range(len(self.dir)):
+            nDir.append(self.dir[i])
 
-        for i in range(len(self.dir) - 1, len(self.dir) - 1 + len(dirPath), 1):
-            if i == len(self.dir):
-                self.dir[i] = "//"
-            else:
-                self.dir[i] = dirPath[i - len(self.dir) - 1]
+        nDir.append("\\")
 
-        return self.dir
+        for i in range(len(path)):
+            nDir.append(path[i])
+
+        nDir = "".join(nDir)
+        
+
+        return nDir
 
     def setDir(self, path):
         os.chdir(path)
@@ -45,7 +50,7 @@ class Folder:
     def goToParDir(self):
         self.setDir(self.prepPathToPar())
 
-    def goToChilDir(self,dirPath):#not working yet
+    def goToChilDir(self,dirPath):
         self.setDir(self.prepPathToChild(dirPath))
 
 
@@ -63,4 +68,11 @@ class Folder:
 folder = Folder()
 folder.goToParDir()
 print(folder.getDir())
+folder.goToChilDir("peter")
+folder.goToChilDir("peter")
+print(folder.getDir())
+print(folder.showMeDir())
+
+
+
 
