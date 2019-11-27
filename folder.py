@@ -65,13 +65,16 @@ class Folder:
                 print(item + "\n")
 
 
+    def createADir(self, name):
+        if not os.path.exists(name):
+            os.mkdir(name)
+
+
 folder = Folder()
 folder.goToParDir()
 print(folder.getDir())
-folder.goToChilDir("peter")
-folder.goToChilDir("peter")
-print(folder.getDir())
-print(folder.showMeDir())
+folder.createADir("Test")
+
 
 
 
