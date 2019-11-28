@@ -29,7 +29,7 @@ class Folder:
     def prepPathToChild(self, path):
 
         nDir = []
-        
+
         for i in range(len(self.dir)):
             nDir.append(self.dir[i])
 
@@ -39,7 +39,6 @@ class Folder:
             nDir.append(path[i])
 
         nDir = "".join(nDir)
-        
 
         return nDir
 
@@ -50,10 +49,8 @@ class Folder:
     def goToParDir(self):
         self.setDir(self.prepPathToPar())
 
-    def goToChilDir(self,dirPath):
+    def goToChilDir(self, dirPath):
         self.setDir(self.prepPathToChild(dirPath))
-
-
 
     def showMeDir(self):
         root = self.dir
@@ -64,7 +61,6 @@ class Folder:
             elif os.path.isdir(os.path.join(root, item)):
                 print(item + "\n")
 
-
     def createADir(self, name):
         if not os.path.exists(name):
             os.mkdir(name)
@@ -74,8 +70,3 @@ folder = Folder()
 folder.goToParDir()
 print(folder.getDir())
 folder.createADir("Test")
-
-
-
-
-
