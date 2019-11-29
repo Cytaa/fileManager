@@ -64,9 +64,3 @@ class Folder:
     def createADir(self, name):
         if not os.path.exists(name):
             os.mkdir(name)
-
-
-folder = Folder()
-folder.goToParDir()
-print(folder.getDir())
-folder.createADir("Test")
