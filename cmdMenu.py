@@ -10,6 +10,7 @@ class CmdMenu:
         self.createAMenu()
 
     def createAMenu(self):
+        self.clear()
         while self.chooser != 9:
             print(self.folder.getDir())
             print(""" 
@@ -36,9 +37,9 @@ class CmdMenu:
     def clear(self):
 
         if system == "nt":
-            _ = self.clear()
+            _ = system("cls")
         else:
-            _ = system("clear")
+            _ = system("cls")
 
 
 menu = CmdMenu()
