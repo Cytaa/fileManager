@@ -20,7 +20,18 @@ class CmdMenu:
 4. Create new dir
 5. Copy a file to new destination
 9. Exit""")
-            self.chooser = int(input("choose your option: "))
+
+
+            
+            while True:
+                try:
+                    self.chooser = int(input("choose your option: "))
+                except ValueError:
+                    print("only integers are allowed")
+                else: 
+                    break
+                
+                
             if self.chooser == 1:
                 self.clear()
                 self.folder.showMeDir()
@@ -38,7 +49,7 @@ class CmdMenu:
             elif self.chooser == 5:
                 file = input("select a file to copy: ")
                 path = input("input ur destination: ")
-                self.folder.copyAFile(file,path)
+                self.folder.copyAFile(file, path)
                 self.clear()
             elif self.chooser == 9:
                 exit()

@@ -67,5 +67,4 @@ class Folder:
             os.mkdir(name)
 
     def copyAFile(self, file, dest):
-        shutil.copy2(file,dest)
-
+        shutil.copy2(file, dest)
