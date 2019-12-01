@@ -17,8 +17,10 @@ class CmdMenu:
 1. Show whats in current directory
 2. Go to parent directory
 3. Go to child directory
-4. Create new dir""")
-            self.chooser = int(input("choose your option"))
+4. Create new dir
+5. Copy a file to new destination
+9. Exit""")
+            self.chooser = int(input("choose your option: "))
             if self.chooser == 1:
                 self.clear()
                 self.folder.showMeDir()
@@ -33,13 +35,20 @@ class CmdMenu:
                 name = input("whats ur dirs name: ")
                 self.folder.createADir(name)
                 self.clear()
+            elif self.chooser == 5:
+                file = input("select a file to copy: ")
+                path = input("input ur destination: ")
+                self.folder.copyAFile(file,path)
+                self.clear()
+            elif self.chooser == 9:
+                exit()
 
     def clear(self):
 
         if system == "nt":
             _ = system("cls")
         else:
-            _ = system("cls")
+            _ = system("clear")
 
 
 menu = CmdMenu()

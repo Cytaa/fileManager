@@ -1,4 +1,5 @@
 import os
+import shutil
 
 
 class Folder:
@@ -64,3 +65,7 @@ class Folder:
     def createADir(self, name):
         if not os.path.exists(name):
             os.mkdir(name)
+
+    def copyAFile(self, file, dest):
+        shutil.copy2(file,dest)
+
