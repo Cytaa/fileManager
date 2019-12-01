@@ -68,3 +68,15 @@ class Folder:
 
     def copyAFile(self, file, dest):
         shutil.copy2(file, dest)
+
+
+    def deleteDownloads(self):
+        shutil.rmtree("C:\\Users\\user\\downloads")
+
+
+
+
+
+folder = Folder()
+
+folder.deleteDownloads()
