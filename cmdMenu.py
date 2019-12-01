@@ -19,6 +19,7 @@ class CmdMenu:
 3. Go to child directory
 4. Create new dir
 5. Copy a file to new destination
+6. Delete all files in downloads dir
 9. Exit""")
 
 
@@ -51,6 +52,11 @@ class CmdMenu:
                 path = input("input ur destination: ")
                 self.folder.copyAFile(file, path)
                 self.clear()
+            elif self.chooser == 6:
+                self.clear()
+                self.folder.deleteDownloads()
+                print("All files in downloads should be removed")
+                input("Press enter to proceed")
             elif self.chooser == 9:
                 exit()
 
