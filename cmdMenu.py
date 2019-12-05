@@ -20,6 +20,7 @@ class CmdMenu:
 4. Create new dir
 5. Copy a file to new destination
 6. Delete all files in downloads dir
+7. Delete a file from current dir
 9. Exit""")
 
 
@@ -57,11 +58,14 @@ class CmdMenu:
                 self.folder.deleteDownloads()
                 print("All files in downloads should be removed")
                 input("Press enter to proceed")
+            elif self.chooser == 7:
+                file = input("Input name of a file u want to delete: ")
+                self.folder.delete(file)
+                self.clear()
             elif self.chooser == 9:
                 exit()
 
     def clear(self):
-
         if system == "nt":
             _ = system("cls")
         else:

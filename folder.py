@@ -73,3 +73,11 @@ class Folder:
         path = "C:\\Users\\" + os.getlogin() + "\\downloads"
         shutil.rmtree(path,True)
 
+    def delete(self, name):
+        try:
+            os.remove(name)
+        except NameError:
+            print("Invalid file name")
+        
+        
+
