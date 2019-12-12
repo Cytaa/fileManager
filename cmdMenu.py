@@ -60,7 +60,10 @@ class CmdMenu:
                 input("Press enter to proceed")
             elif self.chooser == 7:
                 file = input("Input name of a file u want to delete: ")
-                self.folder.delete(file)
+                try:
+                    self.folder.delete(name)
+                except FileNotFoundError:
+                    print("Invalid name of file")
                 self.clear()
             elif self.chooser == 9:
                 exit()
